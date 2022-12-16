@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <artifactId>web-modeler-cli</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
-  <name>Web Modeler CLI</name>
-
-  <scm>
-    <url>https://github.com/camunda-community-hub/web-modeler-cli</url>
-    <connection>scm:git:git@github.com/camunda-community-hub/web-modeler-cli</connection>
-    <developerConnection>scm:git:git@github.com/camunda-community-hub/web-modeler-cli</developerConnection>
-    <tag>HEAD</tag>
-  </scm>
 
   <parent>
     <groupId>org.camunda.community</groupId>
@@ -24,10 +9,30 @@
     <relativePath />
   </parent>
 
+  <artifactId>web-modeler-cli</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>Web Modeler CLI</name>
+
+  <scm>
+    <connection>scm:git:git@github.com/camunda-community-hub/web-modeler-cli</connection>
+    <developerConnection>scm:git:git@github.com/camunda-community-hub/web-modeler-cli</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/camunda-community-hub/web-modeler-cli</url>
+  </scm>
+
   <properties>
+    <maven.version>3.0</maven.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.java>19</version.java>
-    <maven.version>3.0</maven.version>
+    <swagger-core-version>2.0.0</swagger-core-version>
+    <okhttp-version>2.7.5</okhttp-version>
+    <gson-version>2.8.1</gson-version>
+    <gson-fire-version>1.8.3</gson-fire-version>
+    <threetenbp-version>1.3.5</threetenbp-version>
+    <maven-plugin-version>1.0.0</maven-plugin-version>
+    <junit-version>4.13.1</junit-version>
   </properties>
 
   <dependencyManagement>
@@ -44,6 +49,44 @@
 
   <dependencies>
     <dependency>
+      <groupId>io.swagger.core.v3</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>${swagger-core-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>logging-interceptor</artifactId>
+      <version>${okhttp-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.gsonfire</groupId>
+      <artifactId>gson-fire</artifactId>
+      <version>${gson-fire-version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.threeten</groupId>
+      <artifactId>threetenbp</artifactId>
+      <version>${threetenbp-version}</version>
+    </dependency>
+
+
+    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>3.23.1</version>
@@ -53,6 +96,12 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.annotation</groupId>
+      <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+      <version>1.0.0.Final</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 
@@ -64,15 +113,15 @@
         <version>3.1.0</version>
         <configuration>
           <rules>
-            <dependencyConvergence/>
+            <dependencyConvergence />
           </rules>
         </configuration>
         <executions>
           <execution>
-            <phase>verify</phase>
             <goals>
               <goal>enforce</goal>
             </goals>
+            <phase>verify</phase>
           </execution>
         </executions>
       </plugin>
@@ -96,48 +145,11 @@
         </executions>
       </plugin>
 
-      <!-- JaCoCo Plugin -->
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.8</version>
-        <executions>
-          <execution>
-            <id>coverage-initialize</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>coverage-report</id>
-            <phase>post-integration-test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-          <!-- Threshold -->
-        </executions>
-      </plugin>
       <!-- Surefire plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M7</version>
-      </plugin>
-
-      <!-- flaky test extractor plugin -->
-      <plugin>
-        <groupId>io.zeebe</groupId>
-        <artifactId>flaky-test-extractor-maven-plugin</artifactId>
-        <version>2.1.1</version>
-        <executions>
-          <execution>
-            <phase>post-integration-test</phase>
-            <goals>
-              <goal>extract-flaky-tests</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
