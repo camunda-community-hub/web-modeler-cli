@@ -133,7 +133,7 @@ public class ApiBetaApi {
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
    */
-  public FileDto get(UUID fileId) throws ApiException {
+  public FileDto getFile(UUID fileId) throws ApiException {
     ApiResponse<FileDto> resp = getWithHttpInfo(fileId);
     return resp.getData();
   }
