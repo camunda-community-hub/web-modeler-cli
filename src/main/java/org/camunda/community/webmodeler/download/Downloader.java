@@ -49,25 +49,22 @@ public class Downloader {
         var pathElements = file.getMetadata().getCanonicalPath();
 
         var folderPath = pathElements.stream()
-                .map(pe -> pe.getName() + "[" + pe.getId() + "]")
+                .map(pe -> "%s[%s]".formatted(pe.getName(), pe.getId()))
                 .collect(Collectors.joining("/", "", "/"));
 
-        var fileName = file.getMetadata().getName()
-                + "["
-                + file.getMetadata().getId()
-                + "]"
-                + toExtension(file.getMetadata().getType());
+        var fileName = "%s[%s].%s"
+                .formatted(
+                        file.getMetadata().getName(),
+                        file.getMetadata().getId(),
+                        toExtension(file.getMetadata().getType()));
 
         return folderPath + fileName;
     }
 
     private String toExtension(String type) {
         return switch (type) {
-            case "BPMN" -> ".bpmn";
-            case "DMN" -> ".dmn";
-            case "CONNECTOR_TEMPLATE" -> ".json";
-            case "FORM" -> ".form";
-            default -> "." + type.toLowerCase();
+            case "CONNECTOR_TEMPLATE" -> "json";
+            default -> type.toLowerCase();
         };
     }
 

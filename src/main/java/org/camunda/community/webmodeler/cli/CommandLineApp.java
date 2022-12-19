@@ -19,8 +19,7 @@ public class CommandLineApp {
     @Option(
             names = {"--basePath", "-b"},
             description = "base path of API (default to Camunda Cloud path)",
-            scope = CommandLine.ScopeType.INHERIT,
-            required = false)
+            scope = CommandLine.ScopeType.INHERIT)
     private String basePath = new ApiClient().getBasePath();
 
     protected ApiBetaApi buildClient() {
