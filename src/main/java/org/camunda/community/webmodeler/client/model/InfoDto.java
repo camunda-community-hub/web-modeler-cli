@@ -18,193 +18,196 @@ import java.util.Objects;
 
 /** InfoDto */
 @javax.annotation.Generated(
-    value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-    date = "2022-12-16T16:31:05.499Z[GMT]")
+        value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
+        date = "2022-12-16T16:31:05.499Z[GMT]")
 public class InfoDto {
-  @SerializedName("version")
-  private String version = null;
+    @SerializedName("version")
+    private String version = null;
 
-  @SerializedName("authorizedOrganization")
-  private String authorizedOrganization = null;
+    @SerializedName("authorizedOrganization")
+    private String authorizedOrganization = null;
 
-  @SerializedName("createPermission")
-  private Boolean createPermission = null;
+    @SerializedName("createPermission")
+    private Boolean createPermission = null;
 
-  @SerializedName("readPermission")
-  private Boolean readPermission = null;
+    @SerializedName("readPermission")
+    private Boolean readPermission = null;
 
-  @SerializedName("updatePermission")
-  private Boolean updatePermission = null;
+    @SerializedName("updatePermission")
+    private Boolean updatePermission = null;
 
-  @SerializedName("deletePermission")
-  private Boolean deletePermission = null;
+    @SerializedName("deletePermission")
+    private Boolean deletePermission = null;
 
-  public InfoDto version(String version) {
-    this.version = version;
-    return this;
-  }
-
-  /**
-   * Get version
-   *
-   * @return version
-   */
-  @Schema(description = "")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public InfoDto authorizedOrganization(String authorizedOrganization) {
-    this.authorizedOrganization = authorizedOrganization;
-    return this;
-  }
-
-  /**
-   * Get authorizedOrganization
-   *
-   * @return authorizedOrganization
-   */
-  @Schema(description = "")
-  public String getAuthorizedOrganization() {
-    return authorizedOrganization;
-  }
-
-  public void setAuthorizedOrganization(String authorizedOrganization) {
-    this.authorizedOrganization = authorizedOrganization;
-  }
-
-  public InfoDto createPermission(Boolean createPermission) {
-    this.createPermission = createPermission;
-    return this;
-  }
-
-  /**
-   * Get createPermission
-   *
-   * @return createPermission
-   */
-  @Schema(description = "")
-  public Boolean isCreatePermission() {
-    return createPermission;
-  }
-
-  public void setCreatePermission(Boolean createPermission) {
-    this.createPermission = createPermission;
-  }
-
-  public InfoDto readPermission(Boolean readPermission) {
-    this.readPermission = readPermission;
-    return this;
-  }
-
-  /**
-   * Get readPermission
-   *
-   * @return readPermission
-   */
-  @Schema(description = "")
-  public Boolean isReadPermission() {
-    return readPermission;
-  }
-
-  public void setReadPermission(Boolean readPermission) {
-    this.readPermission = readPermission;
-  }
-
-  public InfoDto updatePermission(Boolean updatePermission) {
-    this.updatePermission = updatePermission;
-    return this;
-  }
-
-  /**
-   * Get updatePermission
-   *
-   * @return updatePermission
-   */
-  @Schema(description = "")
-  public Boolean isUpdatePermission() {
-    return updatePermission;
-  }
-
-  public void setUpdatePermission(Boolean updatePermission) {
-    this.updatePermission = updatePermission;
-  }
-
-  public InfoDto deletePermission(Boolean deletePermission) {
-    this.deletePermission = deletePermission;
-    return this;
-  }
-
-  /**
-   * Get deletePermission
-   *
-   * @return deletePermission
-   */
-  @Schema(description = "")
-  public Boolean isDeletePermission() {
-    return deletePermission;
-  }
-
-  public void setDeletePermission(Boolean deletePermission) {
-    this.deletePermission = deletePermission;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public InfoDto version(String version) {
+        this.version = version;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get version
+     *
+     * @return version
+     */
+    @Schema(description = "")
+    public String getVersion() {
+        return version;
     }
-    InfoDto infoDto = (InfoDto) o;
-    return Objects.equals(this.version, infoDto.version)
-        && Objects.equals(this.authorizedOrganization, infoDto.authorizedOrganization)
-        && Objects.equals(this.createPermission, infoDto.createPermission)
-        && Objects.equals(this.readPermission, infoDto.readPermission)
-        && Objects.equals(this.updatePermission, infoDto.updatePermission)
-        && Objects.equals(this.deletePermission, infoDto.deletePermission);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(
-        version,
-        authorizedOrganization,
-        createPermission,
-        readPermission,
-        updatePermission,
-        deletePermission);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class InfoDto {\n");
-
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    authorizedOrganization: ")
-        .append(toIndentedString(authorizedOrganization))
-        .append("\n");
-    sb.append("    createPermission: ").append(toIndentedString(createPermission)).append("\n");
-    sb.append("    readPermission: ").append(toIndentedString(readPermission)).append("\n");
-    sb.append("    updatePermission: ").append(toIndentedString(updatePermission)).append("\n");
-    sb.append("    deletePermission: ").append(toIndentedString(deletePermission)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setVersion(String version) {
+        this.version = version;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public InfoDto authorizedOrganization(String authorizedOrganization) {
+        this.authorizedOrganization = authorizedOrganization;
+        return this;
+    }
+
+    /**
+     * Get authorizedOrganization
+     *
+     * @return authorizedOrganization
+     */
+    @Schema(description = "")
+    public String getAuthorizedOrganization() {
+        return authorizedOrganization;
+    }
+
+    public void setAuthorizedOrganization(String authorizedOrganization) {
+        this.authorizedOrganization = authorizedOrganization;
+    }
+
+    public InfoDto createPermission(Boolean createPermission) {
+        this.createPermission = createPermission;
+        return this;
+    }
+
+    /**
+     * Get createPermission
+     *
+     * @return createPermission
+     */
+    @Schema(description = "")
+    public Boolean isCreatePermission() {
+        return createPermission;
+    }
+
+    public void setCreatePermission(Boolean createPermission) {
+        this.createPermission = createPermission;
+    }
+
+    public InfoDto readPermission(Boolean readPermission) {
+        this.readPermission = readPermission;
+        return this;
+    }
+
+    /**
+     * Get readPermission
+     *
+     * @return readPermission
+     */
+    @Schema(description = "")
+    public Boolean isReadPermission() {
+        return readPermission;
+    }
+
+    public void setReadPermission(Boolean readPermission) {
+        this.readPermission = readPermission;
+    }
+
+    public InfoDto updatePermission(Boolean updatePermission) {
+        this.updatePermission = updatePermission;
+        return this;
+    }
+
+    /**
+     * Get updatePermission
+     *
+     * @return updatePermission
+     */
+    @Schema(description = "")
+    public Boolean isUpdatePermission() {
+        return updatePermission;
+    }
+
+    public void setUpdatePermission(Boolean updatePermission) {
+        this.updatePermission = updatePermission;
+    }
+
+    public InfoDto deletePermission(Boolean deletePermission) {
+        this.deletePermission = deletePermission;
+        return this;
+    }
+
+    /**
+     * Get deletePermission
+     *
+     * @return deletePermission
+     */
+    @Schema(description = "")
+    public Boolean isDeletePermission() {
+        return deletePermission;
+    }
+
+    public void setDeletePermission(Boolean deletePermission) {
+        this.deletePermission = deletePermission;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        InfoDto infoDto = (InfoDto) o;
+        return Objects.equals(this.version, infoDto.version)
+                && Objects.equals(this.authorizedOrganization, infoDto.authorizedOrganization)
+                && Objects.equals(this.createPermission, infoDto.createPermission)
+                && Objects.equals(this.readPermission, infoDto.readPermission)
+                && Objects.equals(this.updatePermission, infoDto.updatePermission)
+                && Objects.equals(this.deletePermission, infoDto.deletePermission);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                version, authorizedOrganization, createPermission, readPermission, updatePermission, deletePermission);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class InfoDto {\n");
+
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    authorizedOrganization: ")
+                .append(toIndentedString(authorizedOrganization))
+                .append("\n");
+        sb.append("    createPermission: ")
+                .append(toIndentedString(createPermission))
+                .append("\n");
+        sb.append("    readPermission: ")
+                .append(toIndentedString(readPermission))
+                .append("\n");
+        sb.append("    updatePermission: ")
+                .append(toIndentedString(updatePermission))
+                .append("\n");
+        sb.append("    deletePermission: ")
+                .append(toIndentedString(deletePermission))
+                .append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

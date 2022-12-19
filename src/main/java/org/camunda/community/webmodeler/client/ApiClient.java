@@ -16,17 +16,6 @@ import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
-import okio.BufferedSink;
-import okio.Okio;
-import org.camunda.community.webmodeler.client.auth.ApiKeyAuth;
-import org.camunda.community.webmodeler.client.auth.Authentication;
-import org.camunda.community.webmodeler.client.auth.HttpBasicAuth;
-import org.camunda.community.webmodeler.client.auth.OAuth;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
-
-import javax.net.ssl.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,6 +38,16 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.net.ssl.*;
+import okio.BufferedSink;
+import okio.Okio;
+import org.camunda.community.webmodeler.client.auth.ApiKeyAuth;
+import org.camunda.community.webmodeler.client.auth.Authentication;
+import org.camunda.community.webmodeler.client.auth.HttpBasicAuth;
+import org.camunda.community.webmodeler.client.auth.OAuth;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
 
 public class ApiClient {
 

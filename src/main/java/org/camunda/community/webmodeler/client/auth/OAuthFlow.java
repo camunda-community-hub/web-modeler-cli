@@ -13,8 +13,8 @@
 package org.camunda.community.webmodeler.client.auth;
 
 public enum OAuthFlow {
-  accessCode,
-  implicit,
-  password,
-  application
+    accessCode,
+    implicit,
+    password,
+    application
 }

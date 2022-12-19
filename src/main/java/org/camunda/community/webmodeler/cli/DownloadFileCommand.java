@@ -1,8 +1,7 @@
 package org.camunda.community.webmodeler.cli;
 
-import picocli.CommandLine;
-
 import java.util.UUID;
+import picocli.CommandLine;
 
 @CommandLine.Command(name = "downloadFile", description = "Prints out file content.", mixinStandardHelpOptions = true)
 public class DownloadFileCommand extends AbstractCommand {

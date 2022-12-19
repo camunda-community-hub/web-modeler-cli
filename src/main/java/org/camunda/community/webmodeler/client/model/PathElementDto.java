@@ -18,89 +18,88 @@ import java.util.Objects;
 
 /** PathElementDto */
 @javax.annotation.Generated(
-    value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-    date = "2022-12-16T16:31:05.499Z[GMT]")
+        value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
+        date = "2022-12-16T16:31:05.499Z[GMT]")
 public class PathElementDto {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  public PathElementDto id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   *
-   * @return id
-   */
-  @Schema(description = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PathElementDto name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Get name
-   *
-   * @return name
-   */
-  @Schema(description = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public PathElementDto id(String id) {
+        this.id = id;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get id
+     *
+     * @return id
+     */
+    @Schema(description = "")
+    public String getId() {
+        return id;
     }
-    PathElementDto pathElementDto = (PathElementDto) o;
-    return Objects.equals(this.id, pathElementDto.id)
-        && Objects.equals(this.name, pathElementDto.name);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PathElementDto {\n");
-
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setId(String id) {
+        this.id = id;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public PathElementDto name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     */
+    @Schema(description = "")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PathElementDto pathElementDto = (PathElementDto) o;
+        return Objects.equals(this.id, pathElementDto.id) && Objects.equals(this.name, pathElementDto.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PathElementDto {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

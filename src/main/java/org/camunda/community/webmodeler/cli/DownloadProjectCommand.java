@@ -1,12 +1,11 @@
 package org.camunda.community.webmodeler.cli;
 
+import java.io.File;
+import java.util.UUID;
 import org.apache.commons.io.FileUtils;
 import org.camunda.community.webmodeler.download.Downloader;
 import org.camunda.community.webmodeler.download.Downloader.Mode;
 import picocli.CommandLine;
-
-import java.io.File;
-import java.util.UUID;
 
 @CommandLine.Command(
         name = "downloadProject",

@@ -1,17 +1,16 @@
 package org.camunda.community.webmodeler.download;
 
-import org.apache.commons.io.FileUtils;
-import org.camunda.community.webmodeler.client.ApiException;
-import org.camunda.community.webmodeler.client.api.ApiBetaApi;
-import org.camunda.community.webmodeler.client.model.FileDto;
-import org.camunda.community.webmodeler.client.model.FileMetadataDto;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import org.apache.commons.io.FileUtils;
+import org.camunda.community.webmodeler.client.ApiException;
+import org.camunda.community.webmodeler.client.api.ApiBetaApi;
+import org.camunda.community.webmodeler.client.model.FileDto;
+import org.camunda.community.webmodeler.client.model.FileMetadataDto;
 
 public class Downloader {
 

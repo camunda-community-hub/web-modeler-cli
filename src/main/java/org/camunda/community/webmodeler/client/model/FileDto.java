@@ -18,89 +18,88 @@ import java.util.Objects;
 
 /** FileDto */
 @javax.annotation.Generated(
-    value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-    date = "2022-12-16T16:31:05.499Z[GMT]")
+        value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
+        date = "2022-12-16T16:31:05.499Z[GMT]")
 public class FileDto {
-  @SerializedName("metadata")
-  private FileMetadataDto metadata = null;
+    @SerializedName("metadata")
+    private FileMetadataDto metadata = null;
 
-  @SerializedName("content")
-  private String content = null;
+    @SerializedName("content")
+    private String content = null;
 
-  public FileDto metadata(FileMetadataDto metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-  /**
-   * Get metadata
-   *
-   * @return metadata
-   */
-  @Schema(description = "")
-  public FileMetadataDto getMetadata() {
-    return metadata;
-  }
-
-  public void setMetadata(FileMetadataDto metadata) {
-    this.metadata = metadata;
-  }
-
-  public FileDto content(String content) {
-    this.content = content;
-    return this;
-  }
-
-  /**
-   * Get content
-   *
-   * @return content
-   */
-  @Schema(description = "")
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public FileDto metadata(FileMetadataDto metadata) {
+        this.metadata = metadata;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get metadata
+     *
+     * @return metadata
+     */
+    @Schema(description = "")
+    public FileMetadataDto getMetadata() {
+        return metadata;
     }
-    FileDto fileDto = (FileDto) o;
-    return Objects.equals(this.metadata, fileDto.metadata)
-        && Objects.equals(this.content, fileDto.content);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(metadata, content);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FileDto {\n");
-
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setMetadata(FileMetadataDto metadata) {
+        this.metadata = metadata;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public FileDto content(String content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return content
+     */
+    @Schema(description = "")
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FileDto fileDto = (FileDto) o;
+        return Objects.equals(this.metadata, fileDto.metadata) && Objects.equals(this.content, fileDto.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(metadata, content);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FileDto {\n");
+
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    content: ").append(toIndentedString(content)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
