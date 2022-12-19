@@ -168,6 +168,13 @@
               <sortProperties>true</sortProperties>
             </sortPom>
           </pom>
+          <markdown>
+            <includes>
+              <include>**/*.md</include>
+            </includes>
+
+            <flexmark></flexmark>
+          </markdown>
         </configuration>
         <executions>
           <execution>
