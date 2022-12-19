@@ -6,7 +6,7 @@
     <groupId>org.camunda.community</groupId>
     <artifactId>community-hub-release-parent</artifactId>
     <version>1.3.1</version>
-    <relativePath />
+    <relativePath></relativePath>
   </parent>
 
   <artifactId>web-modeler-cli</artifactId>
@@ -23,27 +23,27 @@
   </scm>
 
   <properties>
-    <maven.version>3.0</maven.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.java>19</version.java>
-    <swagger-core-version>2.0.0</swagger-core-version>
-    <okhttp-version>2.7.5</okhttp-version>
-    <gson-version>2.8.1</gson-version>
-    <gson-fire-version>1.8.3</gson-fire-version>
-    <threetenbp-version>1.3.5</threetenbp-version>
-    <maven-plugin-version>1.0.0</maven-plugin-version>
-    <junit-version>4.13.1</junit-version>
-    <picocli.version>4.7.0</picocli.version>
     <assertj-core.version>3.23.1</assertj-core.version>
+    <commons-io.version>2.11.0</commons-io.version>
+    <fmt-maven-plugin.version>2.19</fmt-maven-plugin.version>
+    <gson-fire-version>1.8.3</gson-fire-version>
+    <gson-version>2.8.1</gson-version>
     <jboss-annotations-api_1.2_spec.version>1.0.0.Final</jboss-annotations-api_1.2_spec.version>
+    <junit-version>4.13.1</junit-version>
+    <maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
+    <maven-compiler-plugin-version>3.10.1</maven-compiler-plugin-version>
     <maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
     <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
-    <fmt-maven-plugin.version>2.19</fmt-maven-plugin.version>
+    <maven-plugin-version>1.0.0</maven-plugin-version>
     <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
-    <maven-compiler-plugin-version>3.10.1</maven-compiler-plugin-version>
-    <maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
-    <commons-io.version>2.11.0</commons-io.version>
+    <maven.version>3.0</maven.version>
+    <okhttp-version>2.7.5</okhttp-version>
+    <picocli.version>4.7.0</picocli.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spotless.version>2.28.0</spotless.version>
+    <swagger-core-version>2.0.0</swagger-core-version>
+    <threetenbp-version>1.3.5</threetenbp-version>
+    <version.java>19</version.java>
   </properties>
 
   <dependencyManagement>
@@ -135,7 +135,7 @@
         <version>${maven-enforcer-plugin.version}</version>
         <configuration>
           <rules>
-            <dependencyConvergence />
+            <dependencyConvergence></dependencyConvergence>
           </rules>
         </configuration>
         <executions>
@@ -163,6 +163,11 @@
               <version>2.10.0</version>
             </palantirJavaFormat>
           </java>
+          <pom>
+            <sortPom>
+              <sortProperties>true</sortProperties>
+            </sortPom>
+          </pom>
         </configuration>
         <executions>
           <execution>
@@ -173,13 +178,6 @@
           </execution>
         </executions>
       </plugin>
-
-      <!-- Surefire plugin -->
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-surefire-plugin</artifactId>-->
-<!--        <version>${maven-surefire-plugin.version}</version>-->
-<!--      </plugin>-->
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -229,11 +227,13 @@
         </configuration>
         <executions>
           <execution>
-            <id>make-assembly</id> <!-- this is used for inheritance merges -->
-            <phase>package</phase> <!-- bind to the packaging phase -->
+            <id>make-assembly</id>
+            <!-- bind to the packaging phase -->
             <goals>
               <goal>single</goal>
             </goals>
+            <!-- this is used for inheritance merges -->
+            <phase>package</phase>
           </execution>
         </executions>
       </plugin>
