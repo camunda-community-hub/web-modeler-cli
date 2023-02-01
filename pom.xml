@@ -40,7 +40,7 @@
     <spotless.version>2.31.0</spotless.version>
     <swagger-core-version>2.2.8</swagger-core-version>
     <threetenbp-version>1.6.5</threetenbp-version>
-    <version.java>19</version.java>
+    <version.java>17</version.java>
   </properties>
 
   <dependencies>
