@@ -57,6 +57,14 @@ Downloads all files of the project.
   and file name is suffixed by its unique ID (i.e.. `<name>[<id>]`). This makes names unique, but also less pleasant to
   look at)
 
+## Building from source
+
+```sh
+mvn package
+cd target/
+java -jar web-modeler-cli-*-jar-with-dependencies.jar --help
+```
+
 ## Contributing
 
 * [Contributing Guide](./CONTRIBUTING.md)
