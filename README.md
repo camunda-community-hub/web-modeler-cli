@@ -26,7 +26,7 @@ Commands:
   downloadProject  Downloads all files of the project.
 ```
 
-JWT token must be generated elsewhere and passed into the CLI via `-t, --token=<token>`
+JWT token must be [generated elsewhere](https://docs.camunda.io/docs/next/apis-clients/web-modeler-api/#authentication) and passed into the CLI via `-t, --token=<token>`
 
 Program will print out usage help for each subcommand.
 
