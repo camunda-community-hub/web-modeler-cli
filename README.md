@@ -3,7 +3,7 @@
 
 # Web Modeler CLI
 
-Command line interface for Web Modeler API.
+Command line interface for [Web Modeler API](https://docs.camunda.io/docs/next/apis-clients/web-modeler-api/).
 
 Early stages of development.
 
