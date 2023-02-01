@@ -29,7 +29,7 @@
     <jboss-annotations-api_1.2_spec.version>1.0.2.Final</jboss-annotations-api_1.2_spec.version>
     <maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
     <maven-compiler-plugin-version>3.10.1</maven-compiler-plugin-version>
-    <maven-enforcer-plugin.version>3.1.0</maven-enforcer-plugin.version>
+    <maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
     <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
     <maven-plugin-version>1.0.0</maven-plugin-version>
     <maven.version>3.0</maven.version>
