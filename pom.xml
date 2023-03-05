@@ -28,7 +28,7 @@
     <gson-version>2.10.1</gson-version>
     <jboss-annotations-api_1.2_spec.version>1.0.2.Final</jboss-annotations-api_1.2_spec.version>
     <maven-assembly-plugin.version>3.5.0</maven-assembly-plugin.version>
-    <maven-compiler-plugin-version>3.10.1</maven-compiler-plugin-version>
+    <maven-compiler-plugin-version>3.11.0</maven-compiler-plugin-version>
     <maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
     <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
     <maven-plugin-version>1.0.0</maven-plugin-version>
