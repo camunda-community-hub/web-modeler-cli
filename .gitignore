@@ -14,3 +14,6 @@ buildNumber.properties
 /.settings/
 /give-me-a-name.iml
 /.idea/
+/client-generator/api
+/client-generator/openapi-generator-cli-4.2.3.jar
+/client-generator/generated/
