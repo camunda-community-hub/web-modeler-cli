@@ -17,52 +17,52 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /**
- * UserDto
+ * MilestoneDto
  */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
         date = "2023-04-13T12:19:16.932483766Z[GMT]")
-public class UserDto {
-    @SerializedName("id")
-    private String id = null;
+public class MilestoneDto {
+    @SerializedName("metadata")
+    private MilestoneMetadataDto metadata = null;
 
-    @SerializedName("name")
-    private String name = null;
+    @SerializedName("content")
+    private String content = null;
 
-    public UserDto id(String id) {
-        this.id = id;
+    public MilestoneDto metadata(MilestoneMetadataDto metadata) {
+        this.metadata = metadata;
         return this;
     }
 
     /**
-     * Get id
-     * @return id
+     * Get metadata
+     * @return metadata
      **/
     @Schema(description = "")
-    public String getId() {
-        return id;
+    public MilestoneMetadataDto getMetadata() {
+        return metadata;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMetadata(MilestoneMetadataDto metadata) {
+        this.metadata = metadata;
     }
 
-    public UserDto name(String name) {
-        this.name = name;
+    public MilestoneDto content(String content) {
+        this.content = content;
         return this;
     }
 
     /**
-     * Get name
-     * @return name
+     * Get content
+     * @return content
      **/
     @Schema(description = "")
-    public String getName() {
-        return name;
+    public String getContent() {
+        return content;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override
@@ -73,22 +73,23 @@ public class UserDto {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UserDto userDto = (UserDto) o;
-        return Objects.equals(this.id, userDto.id) && Objects.equals(this.name, userDto.name);
+        MilestoneDto milestoneDto = (MilestoneDto) o;
+        return Objects.equals(this.metadata, milestoneDto.metadata)
+                && Objects.equals(this.content, milestoneDto.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(metadata, content);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UserDto {\n");
+        sb.append("class MilestoneDto {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    content: ").append(toIndentedString(content)).append("\n");
         sb.append("}");
         return sb.toString();
     }

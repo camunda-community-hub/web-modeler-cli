@@ -17,7 +17,7 @@ import java.util.Map;
 
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;

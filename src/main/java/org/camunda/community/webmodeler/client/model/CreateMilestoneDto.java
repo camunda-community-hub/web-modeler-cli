@@ -17,37 +17,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /**
- * UserDto
+ * CreateMilestoneDto
  */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
         date = "2023-04-13T12:19:16.932483766Z[GMT]")
-public class UserDto {
-    @SerializedName("id")
-    private String id = null;
-
+public class CreateMilestoneDto {
     @SerializedName("name")
     private String name = null;
 
-    public UserDto id(String id) {
-        this.id = id;
-        return this;
-    }
+    @SerializedName("fileId")
+    private String fileId = null;
 
-    /**
-     * Get id
-     * @return id
-     **/
-    @Schema(description = "")
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public UserDto name(String name) {
+    public CreateMilestoneDto name(String name) {
         this.name = name;
         return this;
     }
@@ -56,13 +38,31 @@ public class UserDto {
      * Get name
      * @return name
      **/
-    @Schema(description = "")
+    @Schema(required = true, description = "")
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CreateMilestoneDto fileId(String fileId) {
+        this.fileId = fileId;
+        return this;
+    }
+
+    /**
+     * Get fileId
+     * @return fileId
+     **/
+    @Schema(description = "")
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
     }
 
     @Override
@@ -73,22 +73,23 @@ public class UserDto {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UserDto userDto = (UserDto) o;
-        return Objects.equals(this.id, userDto.id) && Objects.equals(this.name, userDto.name);
+        CreateMilestoneDto createMilestoneDto = (CreateMilestoneDto) o;
+        return Objects.equals(this.name, createMilestoneDto.name)
+                && Objects.equals(this.fileId, createMilestoneDto.fileId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(name, fileId);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UserDto {\n");
+        sb.append("class CreateMilestoneDto {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    fileId: ").append(toIndentedString(fileId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

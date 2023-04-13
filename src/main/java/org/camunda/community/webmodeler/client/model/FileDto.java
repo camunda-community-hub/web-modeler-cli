@@ -16,10 +16,12 @@ import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
-/** FileDto */
+/**
+ * FileDto
+ */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class FileDto {
     @SerializedName("metadata")
     private FileMetadataDto metadata = null;
@@ -34,9 +36,8 @@ public class FileDto {
 
     /**
      * Get metadata
-     *
      * @return metadata
-     */
+     **/
     @Schema(description = "")
     public FileMetadataDto getMetadata() {
         return metadata;
@@ -53,9 +54,8 @@ public class FileDto {
 
     /**
      * Get content
-     *
      * @return content
-     */
+     **/
     @Schema(description = "")
     public String getContent() {
         return content;
@@ -94,7 +94,8 @@ public class FileDto {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

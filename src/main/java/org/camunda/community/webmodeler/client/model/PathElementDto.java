@@ -16,10 +16,12 @@ import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
-/** PathElementDto */
+/**
+ * PathElementDto
+ */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class PathElementDto {
     @SerializedName("id")
     private String id = null;
@@ -34,9 +36,8 @@ public class PathElementDto {
 
     /**
      * Get id
-     *
      * @return id
-     */
+     **/
     @Schema(description = "")
     public String getId() {
         return id;
@@ -53,9 +54,8 @@ public class PathElementDto {
 
     /**
      * Get name
-     *
      * @return name
-     */
+     **/
     @Schema(description = "")
     public String getName() {
         return name;
@@ -94,7 +94,8 @@ public class PathElementDto {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

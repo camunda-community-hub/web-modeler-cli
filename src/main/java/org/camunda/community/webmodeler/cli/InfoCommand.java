@@ -9,7 +9,7 @@ import picocli.CommandLine;
 public class InfoCommand extends AbstractCommand {
     @Override
     public Integer call() throws Exception {
-        var info = parent.buildClient().getInfo();
+        var info = parent.buildInfoClient().getInfo();
         System.out.println(info);
         return 0;
     }

@@ -110,8 +110,8 @@ public class JSON {
     /**
      * Deserialize the given JSON string to Java object.
      *
-     * @param <T> Type
-     * @param body The JSON string
+     * @param <T>        Type
+     * @param body       The JSON string
      * @param returnType The type to deserialize into
      * @return The deserialized Java object
      */
@@ -135,7 +135,9 @@ public class JSON {
         }
     }
 
-    /** Gson TypeAdapter for JSR310 OffsetDateTime type */
+    /**
+     * Gson TypeAdapter for JSR310 OffsetDateTime type
+     */
     public static class OffsetDateTimeTypeAdapter extends TypeAdapter<OffsetDateTime> {
 
         private DateTimeFormatter formatter;
@@ -177,7 +179,9 @@ public class JSON {
         }
     }
 
-    /** Gson TypeAdapter for JSR310 LocalDate type */
+    /**
+     * Gson TypeAdapter for JSR310 LocalDate type
+     */
     public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
 
         private DateTimeFormatter formatter;
@@ -227,8 +231,9 @@ public class JSON {
     }
 
     /**
-     * Gson TypeAdapter for java.sql.Date type If the dateFormat is null, a simple "yyyy-MM-dd" format
-     * will be used (more efficient than SimpleDateFormat).
+     * Gson TypeAdapter for java.sql.Date type
+     * If the dateFormat is null, a simple "yyyy-MM-dd" format will be used
+     * (more efficient than SimpleDateFormat).
      */
     public static class SqlDateTypeAdapter extends TypeAdapter<java.sql.Date> {
 
@@ -281,7 +286,8 @@ public class JSON {
     }
 
     /**
-     * Gson TypeAdapter for java.util.Date type If the dateFormat is null, ISO8601Utils will be used.
+     * Gson TypeAdapter for java.util.Date type
+     * If the dateFormat is null, ISO8601Utils will be used.
      */
     public static class DateTypeAdapter extends TypeAdapter<Date> {
 

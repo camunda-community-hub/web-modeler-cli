@@ -18,10 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** FileMetadataDto */
+/**
+ * FileMetadataDto
+ */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class FileMetadataDto {
     @SerializedName("id")
     private String id = null;
@@ -66,9 +68,8 @@ public class FileMetadataDto {
 
     /**
      * Get id
-     *
      * @return id
-     */
+     **/
     @Schema(description = "")
     public String getId() {
         return id;
@@ -85,9 +86,8 @@ public class FileMetadataDto {
 
     /**
      * Get name
-     *
      * @return name
-     */
+     **/
     @Schema(description = "")
     public String getName() {
         return name;
@@ -104,9 +104,8 @@ public class FileMetadataDto {
 
     /**
      * Get projectId
-     *
      * @return projectId
-     */
+     **/
     @Schema(description = "")
     public String getProjectId() {
         return projectId;
@@ -123,9 +122,8 @@ public class FileMetadataDto {
 
     /**
      * Get folderId
-     *
      * @return folderId
-     */
+     **/
     @Schema(description = "")
     public String getFolderId() {
         return folderId;
@@ -142,9 +140,8 @@ public class FileMetadataDto {
 
     /**
      * Get simplePath
-     *
      * @return simplePath
-     */
+     **/
     @Schema(description = "")
     public String getSimplePath() {
         return simplePath;
@@ -169,9 +166,8 @@ public class FileMetadataDto {
 
     /**
      * Get canonicalPath
-     *
      * @return canonicalPath
-     */
+     **/
     @Schema(description = "")
     public List<PathElementDto> getCanonicalPath() {
         return canonicalPath;
@@ -188,9 +184,8 @@ public class FileMetadataDto {
 
     /**
      * Get revision
-     *
      * @return revision
-     */
+     **/
     @Schema(description = "")
     public Integer getRevision() {
         return revision;
@@ -207,9 +202,8 @@ public class FileMetadataDto {
 
     /**
      * Get type
-     *
      * @return type
-     */
+     **/
     @Schema(description = "")
     public String getType() {
         return type;
@@ -226,9 +220,8 @@ public class FileMetadataDto {
 
     /**
      * Get created
-     *
      * @return created
-     */
+     **/
     @Schema(description = "")
     public String getCreated() {
         return created;
@@ -245,9 +238,8 @@ public class FileMetadataDto {
 
     /**
      * Get createdBy
-     *
      * @return createdBy
-     */
+     **/
     @Schema(description = "")
     public UserDto getCreatedBy() {
         return createdBy;
@@ -264,9 +256,8 @@ public class FileMetadataDto {
 
     /**
      * Get updated
-     *
      * @return updated
-     */
+     **/
     @Schema(description = "")
     public String getUpdated() {
         return updated;
@@ -283,9 +274,8 @@ public class FileMetadataDto {
 
     /**
      * Get updatedBy
-     *
      * @return updatedBy
-     */
+     **/
     @Schema(description = "")
     public UserDto getUpdatedBy() {
         return updatedBy;
@@ -357,7 +347,8 @@ public class FileMetadataDto {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

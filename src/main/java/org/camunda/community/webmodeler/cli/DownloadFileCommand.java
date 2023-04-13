@@ -15,7 +15,7 @@ public class DownloadFileCommand extends AbstractCommand {
 
     @Override
     public Integer call() throws Exception {
-        var file = parent.buildClient().getFile(fileUUID);
+        var file = parent.buildFilesClient().getFile(fileUUID);
         System.out.println(file.getContent());
         return 0;
     }

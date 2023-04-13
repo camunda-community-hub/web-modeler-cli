@@ -20,20 +20,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import org.camunda.community.webmodeler.client.*;
-import org.camunda.community.webmodeler.client.model.FileDto;
-import org.camunda.community.webmodeler.client.model.FileMetadataDto;
-import org.camunda.community.webmodeler.client.model.InfoDto;
-import org.camunda.community.webmodeler.client.model.ProjectDto;
+import org.camunda.community.webmodeler.client.ApiCallback;
+import org.camunda.community.webmodeler.client.ApiClient;
+import org.camunda.community.webmodeler.client.ApiException;
+import org.camunda.community.webmodeler.client.ApiResponse;
+import org.camunda.community.webmodeler.client.Configuration;
+import org.camunda.community.webmodeler.client.Pair;
+import org.camunda.community.webmodeler.client.ProgressRequestBody;
+import org.camunda.community.webmodeler.client.ProgressResponseBody;
+import org.camunda.community.webmodeler.client.model.CreateFolderDto;
+import org.camunda.community.webmodeler.client.model.FolderDto;
+import org.camunda.community.webmodeler.client.model.FolderMetadataDto;
+import org.camunda.community.webmodeler.client.model.UpdateFolderDto;
 
-public class ApiBetaApi {
+public class FoldersApi {
     private ApiClient apiClient;
 
-    public ApiBetaApi() {
+    public FoldersApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public ApiBetaApi(ApiClient apiClient) {
+    public FoldersApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
@@ -46,24 +53,22 @@ public class ApiBetaApi {
     }
 
     /**
-     * Build call for get
-     *
-     * @param fileId (required)
+     * Build call for createFolder
+     * @param body  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCall(
-            UUID fileId,
+    public com.squareup.okhttp.Call createFolderCall(
+            CreateFolderDto body,
             final ProgressResponseBody.ProgressListener progressListener,
             final ProgressRequestBody.ProgressRequestListener progressRequestListener)
             throws ApiException {
-        Object localVarPostBody = null;
+        Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/api/beta/files/{fileId}"
-                .replaceAll("\\{" + "fileId" + "\\}", apiClient.escapeString(fileId.toString()));
+        String localVarPath = "/api/beta/folders";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -76,8 +81,7 @@ public class ApiBetaApi {
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
-        final String[] localVarContentTypes = {};
-
+        final String[] localVarContentTypes = {"application/json"};
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
@@ -97,7 +101,7 @@ public class ApiBetaApi {
         String[] localVarAuthNames = new String[] {"Bearer"};
         return apiClient.buildCall(
                 localVarPath,
-                "GET",
+                "POST",
                 localVarQueryParams,
                 localVarCollectionQueryParams,
                 localVarPostBody,
@@ -108,52 +112,55 @@ public class ApiBetaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getValidateBeforeCall(
-            UUID fileId,
+    private com.squareup.okhttp.Call createFolderValidateBeforeCall(
+            CreateFolderDto body,
             final ProgressResponseBody.ProgressListener progressListener,
             final ProgressRequestBody.ProgressRequestListener progressRequestListener)
             throws ApiException {
-        // verify the required parameter 'fileId' is set
-        if (fileId == null) {
-            throw new ApiException("Missing the required parameter 'fileId' when calling get(Async)");
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling createFolder(Async)");
         }
 
-        com.squareup.okhttp.Call call = getCall(fileId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createFolderCall(body, progressListener, progressRequestListener);
         return call;
     }
 
     /**
-     * @param fileId (required)
-     * @return FileDto
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
+     *
+     * Creates a new folder.&lt;br/&gt; &lt;ul&gt;   &lt;li&gt;When only &lt;em&gt;parentId&lt;/em&gt; is given, the folder will be created in that       folder. The folder can be in any project of the same organization.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; is given and &lt;em&gt;parentId&lt;/em&gt; is either       null or omitted altogether, the folder will be created in the root of the project.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; and &lt;em&gt;parentId&lt;/em&gt; are both given,       they must be consistent - i.e. the parent folder is in the project.&lt;/li&gt; &lt;/ul&gt;
+     * @param body  (required)
+     * @return FolderMetadataDto
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FileDto getFile(UUID fileId) throws ApiException {
-        ApiResponse<FileDto> resp = getWithHttpInfo(fileId);
+    public FolderMetadataDto createFolder(CreateFolderDto body) throws ApiException {
+        ApiResponse<FolderMetadataDto> resp = createFolderWithHttpInfo(body);
         return resp.getData();
     }
 
     /**
-     * @param fileId (required)
-     * @return ApiResponse&lt;FileDto&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
+     *
+     * Creates a new folder.&lt;br/&gt; &lt;ul&gt;   &lt;li&gt;When only &lt;em&gt;parentId&lt;/em&gt; is given, the folder will be created in that       folder. The folder can be in any project of the same organization.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; is given and &lt;em&gt;parentId&lt;/em&gt; is either       null or omitted altogether, the folder will be created in the root of the project.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; and &lt;em&gt;parentId&lt;/em&gt; are both given,       they must be consistent - i.e. the parent folder is in the project.&lt;/li&gt; &lt;/ul&gt;
+     * @param body  (required)
+     * @return ApiResponse&lt;FolderMetadataDto&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<FileDto> getWithHttpInfo(UUID fileId) throws ApiException {
-        com.squareup.okhttp.Call call = getValidateBeforeCall(fileId, null, null);
-        Type localVarReturnType = new TypeToken<FileDto>() {}.getType();
+    public ApiResponse<FolderMetadataDto> createFolderWithHttpInfo(CreateFolderDto body) throws ApiException {
+        com.squareup.okhttp.Call call = createFolderValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<FolderMetadataDto>() {}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * (asynchronously)
-     *
-     * @param fileId (required)
+     *  (asynchronously)
+     * Creates a new folder.&lt;br/&gt; &lt;ul&gt;   &lt;li&gt;When only &lt;em&gt;parentId&lt;/em&gt; is given, the folder will be created in that       folder. The folder can be in any project of the same organization.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; is given and &lt;em&gt;parentId&lt;/em&gt; is either       null or omitted altogether, the folder will be created in the root of the project.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; and &lt;em&gt;parentId&lt;/em&gt; are both given,       they must be consistent - i.e. the parent folder is in the project.&lt;/li&gt; &lt;/ul&gt;
+     * @param body  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAsync(UUID fileId, final ApiCallback<FileDto> callback) throws ApiException {
+    public com.squareup.okhttp.Call createFolderAsync(
+            CreateFolderDto body, final ApiCallback<FolderMetadataDto> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -174,27 +181,29 @@ public class ApiBetaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getValidateBeforeCall(fileId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FileDto>() {}.getType();
+        com.squareup.okhttp.Call call = createFolderValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FolderMetadataDto>() {}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for getInfo
-     *
+     * Build call for deleteFolder
+     * @param folderId  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getInfoCall(
+    public com.squareup.okhttp.Call deleteFolderCall(
+            UUID folderId,
             final ProgressResponseBody.ProgressListener progressListener,
             final ProgressRequestBody.ProgressRequestListener progressRequestListener)
             throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/beta/info";
+        String localVarPath = "/api/beta/folders/{folderId}"
+                .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(folderId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -228,7 +237,7 @@ public class ApiBetaApi {
         String[] localVarAuthNames = new String[] {"Bearer"};
         return apiClient.buildCall(
                 localVarPath,
-                "GET",
+                "DELETE",
                 localVarQueryParams,
                 localVarCollectionQueryParams,
                 localVarPostBody,
@@ -239,178 +248,51 @@ public class ApiBetaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getInfoValidateBeforeCall(
+    private com.squareup.okhttp.Call deleteFolderValidateBeforeCall(
+            UUID folderId,
             final ProgressResponseBody.ProgressListener progressListener,
             final ProgressRequestBody.ProgressRequestListener progressRequestListener)
             throws ApiException {
+        // verify the required parameter 'folderId' is set
+        if (folderId == null) {
+            throw new ApiException("Missing the required parameter 'folderId' when calling deleteFolder(Async)");
+        }
 
-        com.squareup.okhttp.Call call = getInfoCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteFolderCall(folderId, progressListener, progressRequestListener);
         return call;
     }
 
     /**
-     * @return InfoDto
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     */
-    public InfoDto getInfo() throws ApiException {
-        ApiResponse<InfoDto> resp = getInfoWithHttpInfo();
-        return resp.getData();
-    }
-
-    /**
-     * @return ApiResponse&lt;InfoDto&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     */
-    public ApiResponse<InfoDto> getInfoWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = getInfoValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<InfoDto>() {}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * (asynchronously)
      *
+     * Deletion of resources is recursive and cannot be undone.
+     * @param folderId  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteFolder(UUID folderId) throws ApiException {
+        deleteFolderWithHttpInfo(folderId);
+    }
+
+    /**
+     *
+     * Deletion of resources is recursive and cannot be undone.
+     * @param folderId  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteFolderWithHttpInfo(UUID folderId) throws ApiException {
+        com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(folderId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     *  (asynchronously)
+     * Deletion of resources is recursive and cannot be undone.
+     * @param folderId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getInfoAsync(final ApiCallback<InfoDto> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getInfoValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InfoDto>() {}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for listFiles
-     *
-     * @param projectId (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call listFilesCall(
-            UUID projectId,
-            final ProgressResponseBody.ProgressListener progressListener,
-            final ProgressRequestBody.ProgressRequestListener progressRequestListener)
-            throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/beta/projects/{projectId}/files"
-                .replaceAll("\\{" + "projectId" + "\\}", apiClient.escapeString(projectId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {};
-
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse
-                            .newBuilder()
-                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                            .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {"Bearer"};
-        return apiClient.buildCall(
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarFormParams,
-                localVarAuthNames,
-                progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listFilesValidateBeforeCall(
-            UUID projectId,
-            final ProgressResponseBody.ProgressListener progressListener,
-            final ProgressRequestBody.ProgressRequestListener progressRequestListener)
-            throws ApiException {
-        // verify the required parameter 'projectId' is set
-        if (projectId == null) {
-            throw new ApiException("Missing the required parameter 'projectId' when calling listFiles(Async)");
-        }
-
-        com.squareup.okhttp.Call call = listFilesCall(projectId, progressListener, progressRequestListener);
-        return call;
-    }
-
-    /**
-     * @param projectId (required)
-     * @return List&lt;FileMetadataDto&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     */
-    public List<FileMetadataDto> listFiles(UUID projectId) throws ApiException {
-        ApiResponse<List<FileMetadataDto>> resp = listFilesWithHttpInfo(projectId);
-        return resp.getData();
-    }
-
-    /**
-     * @param projectId (required)
-     * @return ApiResponse&lt;List&lt;FileMetadataDto&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     */
-    public ApiResponse<List<FileMetadataDto>> listFilesWithHttpInfo(UUID projectId) throws ApiException {
-        com.squareup.okhttp.Call call = listFilesValidateBeforeCall(projectId, null, null);
-        Type localVarReturnType = new TypeToken<List<FileMetadataDto>>() {}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * (asynchronously)
-     *
-     * @param projectId (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call listFilesAsync(UUID projectId, final ApiCallback<List<FileMetadataDto>> callback)
+    public com.squareup.okhttp.Call deleteFolderAsync(UUID folderId, final ApiCallback<Void> callback)
             throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -433,27 +315,28 @@ public class ApiBetaApi {
         }
 
         com.squareup.okhttp.Call call =
-                listFilesValidateBeforeCall(projectId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<FileMetadataDto>>() {}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+                deleteFolderValidateBeforeCall(folderId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for listProjects
-     *
+     * Build call for getFolder
+     * @param folderId  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call listProjectsCall(
+    public com.squareup.okhttp.Call getFolderCall(
+            UUID folderId,
             final ProgressResponseBody.ProgressListener progressListener,
             final ProgressRequestBody.ProgressRequestListener progressRequestListener)
             throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/beta/projects";
+        String localVarPath = "/api/beta/folders/{folderId}"
+                .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(folderId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -498,44 +381,54 @@ public class ApiBetaApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call listProjectsValidateBeforeCall(
+    private com.squareup.okhttp.Call getFolderValidateBeforeCall(
+            UUID folderId,
             final ProgressResponseBody.ProgressListener progressListener,
             final ProgressRequestBody.ProgressRequestListener progressRequestListener)
             throws ApiException {
+        // verify the required parameter 'folderId' is set
+        if (folderId == null) {
+            throw new ApiException("Missing the required parameter 'folderId' when calling getFolder(Async)");
+        }
 
-        com.squareup.okhttp.Call call = listProjectsCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getFolderCall(folderId, progressListener, progressRequestListener);
         return call;
     }
 
     /**
-     * @return List&lt;ProjectDto&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
+     *
+     *
+     * @param folderId  (required)
+     * @return FolderDto
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ProjectDto> listProjects() throws ApiException {
-        ApiResponse<List<ProjectDto>> resp = listProjectsWithHttpInfo();
+    public FolderDto getFolder(UUID folderId) throws ApiException {
+        ApiResponse<FolderDto> resp = getFolderWithHttpInfo(folderId);
         return resp.getData();
     }
 
     /**
-     * @return ApiResponse&lt;List&lt;ProjectDto&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
+     *
+     *
+     * @param folderId  (required)
+     * @return ApiResponse&lt;FolderDto&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ProjectDto>> listProjectsWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = listProjectsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<ProjectDto>>() {}.getType();
+    public ApiResponse<FolderDto> getFolderWithHttpInfo(UUID folderId) throws ApiException {
+        com.squareup.okhttp.Call call = getFolderValidateBeforeCall(folderId, null, null);
+        Type localVarReturnType = new TypeToken<FolderDto>() {}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * (asynchronously)
+     *  (asynchronously)
      *
+     * @param folderId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call listProjectsAsync(final ApiCallback<List<ProjectDto>> callback)
+    public com.squareup.okhttp.Call getFolderAsync(UUID folderId, final ApiCallback<FolderDto> callback)
             throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -557,8 +450,156 @@ public class ApiBetaApi {
             };
         }
 
-        com.squareup.okhttp.Call call = listProjectsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<ProjectDto>>() {}.getType();
+        com.squareup.okhttp.Call call =
+                getFolderValidateBeforeCall(folderId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FolderDto>() {}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for patchFolder
+     * @param body  (required)
+     * @param folderId  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call patchFolderCall(
+            UpdateFolderDto body,
+            UUID folderId,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/api/beta/folders/{folderId}"
+                .replaceAll("\\{" + "folderId" + "\\}", apiClient.escapeString(folderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse
+                            .newBuilder()
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {"Bearer"};
+        return apiClient.buildCall(
+                localVarPath,
+                "PATCH",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarFormParams,
+                localVarAuthNames,
+                progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call patchFolderValidateBeforeCall(
+            UpdateFolderDto body,
+            UUID folderId,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling patchFolder(Async)");
+        }
+        // verify the required parameter 'folderId' is set
+        if (folderId == null) {
+            throw new ApiException("Missing the required parameter 'folderId' when calling patchFolder(Async)");
+        }
+
+        com.squareup.okhttp.Call call = patchFolderCall(body, folderId, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     *
+     * This endpoint updates the name or location of a folder, or both at the same time.&lt;br/&gt; To move a folder, specify &lt;em&gt;projectId&lt;/em&gt; and/or &lt;em&gt;parentId&lt;/em&gt;: &lt;ul&gt;   &lt;li&gt;When only &lt;em&gt;parentId&lt;/em&gt; is given, the file will be moved to that       folder. The folder must keep in the same organization.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; is given and &lt;em&gt;parentId&lt;/em&gt; is either       null or omitted altogether, the file will be moved to the root of the project.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; and &lt;em&gt;parentId&lt;/em&gt; are both given,       they must be consistent - i.e. the new parent folder is in the new project.&lt;/li&gt; &lt;/ul&gt;
+     * @param body  (required)
+     * @param folderId  (required)
+     * @return FolderMetadataDto
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FolderMetadataDto patchFolder(UpdateFolderDto body, UUID folderId) throws ApiException {
+        ApiResponse<FolderMetadataDto> resp = patchFolderWithHttpInfo(body, folderId);
+        return resp.getData();
+    }
+
+    /**
+     *
+     * This endpoint updates the name or location of a folder, or both at the same time.&lt;br/&gt; To move a folder, specify &lt;em&gt;projectId&lt;/em&gt; and/or &lt;em&gt;parentId&lt;/em&gt;: &lt;ul&gt;   &lt;li&gt;When only &lt;em&gt;parentId&lt;/em&gt; is given, the file will be moved to that       folder. The folder must keep in the same organization.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; is given and &lt;em&gt;parentId&lt;/em&gt; is either       null or omitted altogether, the file will be moved to the root of the project.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; and &lt;em&gt;parentId&lt;/em&gt; are both given,       they must be consistent - i.e. the new parent folder is in the new project.&lt;/li&gt; &lt;/ul&gt;
+     * @param body  (required)
+     * @param folderId  (required)
+     * @return ApiResponse&lt;FolderMetadataDto&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<FolderMetadataDto> patchFolderWithHttpInfo(UpdateFolderDto body, UUID folderId)
+            throws ApiException {
+        com.squareup.okhttp.Call call = patchFolderValidateBeforeCall(body, folderId, null, null);
+        Type localVarReturnType = new TypeToken<FolderMetadataDto>() {}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * This endpoint updates the name or location of a folder, or both at the same time.&lt;br/&gt; To move a folder, specify &lt;em&gt;projectId&lt;/em&gt; and/or &lt;em&gt;parentId&lt;/em&gt;: &lt;ul&gt;   &lt;li&gt;When only &lt;em&gt;parentId&lt;/em&gt; is given, the file will be moved to that       folder. The folder must keep in the same organization.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; is given and &lt;em&gt;parentId&lt;/em&gt; is either       null or omitted altogether, the file will be moved to the root of the project.&lt;/li&gt;   &lt;li&gt;When &lt;em&gt;projectId&lt;/em&gt; and &lt;em&gt;parentId&lt;/em&gt; are both given,       they must be consistent - i.e. the new parent folder is in the new project.&lt;/li&gt; &lt;/ul&gt;
+     * @param body  (required)
+     * @param folderId  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call patchFolderAsync(
+            UpdateFolderDto body, UUID folderId, final ApiCallback<FolderMetadataDto> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call =
+                patchFolderValidateBeforeCall(body, folderId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FolderMetadataDto>() {}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

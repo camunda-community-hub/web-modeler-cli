@@ -16,141 +16,53 @@ import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
-/** ProjectDto */
+/**
+ * ProjectDto
+ */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class ProjectDto {
-    @SerializedName("id")
-    private String id = null;
+    @SerializedName("metadata")
+    private ProjectMetadataDto metadata = null;
 
-    @SerializedName("name")
-    private String name = null;
+    @SerializedName("content")
+    private ProjectContent content = null;
 
-    @SerializedName("created")
-    private String created = null;
-
-    @SerializedName("createdBy")
-    private UserDto createdBy = null;
-
-    @SerializedName("updated")
-    private String updated = null;
-
-    @SerializedName("updatedBy")
-    private UserDto updatedBy = null;
-
-    public ProjectDto id(String id) {
-        this.id = id;
+    public ProjectDto metadata(ProjectMetadataDto metadata) {
+        this.metadata = metadata;
         return this;
     }
 
     /**
-     * Get id
-     *
-     * @return id
-     */
+     * Get metadata
+     * @return metadata
+     **/
     @Schema(description = "")
-    public String getId() {
-        return id;
+    public ProjectMetadataDto getMetadata() {
+        return metadata;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMetadata(ProjectMetadataDto metadata) {
+        this.metadata = metadata;
     }
 
-    public ProjectDto name(String name) {
-        this.name = name;
+    public ProjectDto content(ProjectContent content) {
+        this.content = content;
         return this;
     }
 
     /**
-     * Get name
-     *
-     * @return name
-     */
+     * Get content
+     * @return content
+     **/
     @Schema(description = "")
-    public String getName() {
-        return name;
+    public ProjectContent getContent() {
+        return content;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public ProjectDto created(String created) {
-        this.created = created;
-        return this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return created
-     */
-    @Schema(description = "")
-    public String getCreated() {
-        return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
-    public ProjectDto createdBy(UserDto createdBy) {
-        this.createdBy = createdBy;
-        return this;
-    }
-
-    /**
-     * Get createdBy
-     *
-     * @return createdBy
-     */
-    @Schema(description = "")
-    public UserDto getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(UserDto createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public ProjectDto updated(String updated) {
-        this.updated = updated;
-        return this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return updated
-     */
-    @Schema(description = "")
-    public String getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(String updated) {
-        this.updated = updated;
-    }
-
-    public ProjectDto updatedBy(UserDto updatedBy) {
-        this.updatedBy = updatedBy;
-        return this;
-    }
-
-    /**
-     * Get updatedBy
-     *
-     * @return updatedBy
-     */
-    @Schema(description = "")
-    public UserDto getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(UserDto updatedBy) {
-        this.updatedBy = updatedBy;
+    public void setContent(ProjectContent content) {
+        this.content = content;
     }
 
     @Override
@@ -162,17 +74,12 @@ public class ProjectDto {
             return false;
         }
         ProjectDto projectDto = (ProjectDto) o;
-        return Objects.equals(this.id, projectDto.id)
-                && Objects.equals(this.name, projectDto.name)
-                && Objects.equals(this.created, projectDto.created)
-                && Objects.equals(this.createdBy, projectDto.createdBy)
-                && Objects.equals(this.updated, projectDto.updated)
-                && Objects.equals(this.updatedBy, projectDto.updatedBy);
+        return Objects.equals(this.metadata, projectDto.metadata) && Objects.equals(this.content, projectDto.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, created, createdBy, updated, updatedBy);
+        return Objects.hash(metadata, content);
     }
 
     @Override
@@ -180,18 +87,15 @@ public class ProjectDto {
         StringBuilder sb = new StringBuilder();
         sb.append("class ProjectDto {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    created: ").append(toIndentedString(created)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
-        sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    content: ").append(toIndentedString(content)).append("\n");
         sb.append("}");
         return sb.toString();
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

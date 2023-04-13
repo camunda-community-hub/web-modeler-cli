@@ -9,7 +9,7 @@ import picocli.CommandLine;
 public class ListProjectsCommand extends AbstractCommand {
     @Override
     public Integer call() throws Exception {
-        var projects = parent.buildClient().listProjects();
+        var projects = parent.buildProjectsClient().listProjects();
         System.out.println(projects);
         return 0;
     }

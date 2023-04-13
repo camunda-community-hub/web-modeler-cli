@@ -8,22 +8,22 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import org.apache.commons.io.FileUtils;
 import org.camunda.community.webmodeler.client.ApiException;
-import org.camunda.community.webmodeler.client.api.ApiBetaApi;
+import org.camunda.community.webmodeler.client.api.FilesApi;
 import org.camunda.community.webmodeler.client.model.FileDto;
 import org.camunda.community.webmodeler.client.model.FileMetadataDto;
 
 public class Downloader {
 
-    private final ApiBetaApi api;
+    private final FilesApi filesApi;
     private final File folder;
 
-    public Downloader(ApiBetaApi api, File folder) {
-        this.api = Objects.requireNonNull(api);
+    public Downloader(FilesApi filesApi, File folder) {
+        this.filesApi = Objects.requireNonNull(filesApi);
         this.folder = Objects.requireNonNull(folder);
     }
 
     public void downloadProject(UUID projectUUID, Mode mode) throws ApiException {
-        var fileMetadataDto = api.listFiles(projectUUID);
+        var fileMetadataDto = filesApi.listFiles(projectUUID);
 
         var idToFile = fileMetadataDto.stream()
                 .map(this::getFile)
@@ -87,7 +87,7 @@ public class Downloader {
     }
 
     public FileDto getFile(UUID fileUUID) throws ApiException {
-        return api.getFile(fileUUID);
+        return filesApi.getFile(fileUUID);
     }
 
     public enum Mode {

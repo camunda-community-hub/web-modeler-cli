@@ -18,7 +18,7 @@ public class ListFilesCommand extends AbstractCommand {
 
     @Override
     public Integer call() throws Exception {
-        var projects = parent.buildClient().listFiles(projectUUID);
+        var projects = parent.buildFilesClient().listFiles(projectUUID);
         System.out.println(projects);
         return 0;
     }

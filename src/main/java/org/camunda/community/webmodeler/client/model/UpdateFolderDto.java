@@ -17,37 +17,22 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /**
- * UserDto
+ * UpdateFolderDto
  */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
         date = "2023-04-13T12:19:16.932483766Z[GMT]")
-public class UserDto {
-    @SerializedName("id")
-    private String id = null;
-
+public class UpdateFolderDto {
     @SerializedName("name")
     private String name = null;
 
-    public UserDto id(String id) {
-        this.id = id;
-        return this;
-    }
+    @SerializedName("projectId")
+    private String projectId = null;
 
-    /**
-     * Get id
-     * @return id
-     **/
-    @Schema(description = "")
-    public String getId() {
-        return id;
-    }
+    @SerializedName("parentId")
+    private String parentId = null;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public UserDto name(String name) {
+    public UpdateFolderDto name(String name) {
         this.name = name;
         return this;
     }
@@ -65,6 +50,42 @@ public class UserDto {
         this.name = name;
     }
 
+    public UpdateFolderDto projectId(String projectId) {
+        this.projectId = projectId;
+        return this;
+    }
+
+    /**
+     * Get projectId
+     * @return projectId
+     **/
+    @Schema(description = "")
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public UpdateFolderDto parentId(String parentId) {
+        this.parentId = parentId;
+        return this;
+    }
+
+    /**
+     * Get parentId
+     * @return parentId
+     **/
+    @Schema(description = "")
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -73,22 +94,25 @@ public class UserDto {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UserDto userDto = (UserDto) o;
-        return Objects.equals(this.id, userDto.id) && Objects.equals(this.name, userDto.name);
+        UpdateFolderDto updateFolderDto = (UpdateFolderDto) o;
+        return Objects.equals(this.name, updateFolderDto.name)
+                && Objects.equals(this.projectId, updateFolderDto.projectId)
+                && Objects.equals(this.parentId, updateFolderDto.parentId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(name, projectId, parentId);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UserDto {\n");
+        sb.append("class UpdateFolderDto {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+        sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

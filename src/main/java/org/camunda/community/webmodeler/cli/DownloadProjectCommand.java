@@ -42,7 +42,7 @@ public class DownloadProjectCommand extends AbstractCommand {
             folder = new File(output);
             FileUtils.forceMkdir(folder);
         }
-        var downloader = new Downloader(parent.buildClient(), folder);
+        var downloader = new Downloader(parent.buildFilesClient(), folder);
         downloader.downloadProject(projectUUID, mode);
         return 0;
     }

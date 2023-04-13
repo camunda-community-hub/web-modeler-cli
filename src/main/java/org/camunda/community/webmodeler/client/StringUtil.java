@@ -14,7 +14,7 @@ package org.camunda.community.webmodeler.client;
 
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class StringUtil {
     /**
      * Check if the given array contains the given value (with case-insensitive comparison).
@@ -33,11 +33,12 @@ public class StringUtil {
 
     /**
      * Join an array of strings with the given separator.
+     * <p>
+     * Note: This might be replaced by utility method from commons-lang or guava someday
+     * if one of those libraries is added as dependency.
+     * </p>
      *
-     * <p>Note: This might be replaced by utility method from commons-lang or guava someday if one of
-     * those libraries is added as dependency.
-     *
-     * @param array The array of strings
+     * @param array     The array of strings
      * @param separator The separator
      * @return the resulting string
      */

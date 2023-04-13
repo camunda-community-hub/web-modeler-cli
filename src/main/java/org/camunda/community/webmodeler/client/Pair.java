@@ -14,7 +14,7 @@ package org.camunda.community.webmodeler.client;
 
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class Pair {
     private String name = "";
     private String value = "";

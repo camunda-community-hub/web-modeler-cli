@@ -16,10 +16,12 @@ import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
-/** InfoDto */
+/**
+ * InfoDto
+ */
 @javax.annotation.Generated(
         value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen",
-        date = "2022-12-16T16:31:05.499Z[GMT]")
+        date = "2023-04-13T12:19:16.932483766Z[GMT]")
 public class InfoDto {
     @SerializedName("version")
     private String version = null;
@@ -46,9 +48,8 @@ public class InfoDto {
 
     /**
      * Get version
-     *
      * @return version
-     */
+     **/
     @Schema(description = "")
     public String getVersion() {
         return version;
@@ -65,9 +66,8 @@ public class InfoDto {
 
     /**
      * Get authorizedOrganization
-     *
      * @return authorizedOrganization
-     */
+     **/
     @Schema(description = "")
     public String getAuthorizedOrganization() {
         return authorizedOrganization;
@@ -84,9 +84,8 @@ public class InfoDto {
 
     /**
      * Get createPermission
-     *
      * @return createPermission
-     */
+     **/
     @Schema(description = "")
     public Boolean isCreatePermission() {
         return createPermission;
@@ -103,9 +102,8 @@ public class InfoDto {
 
     /**
      * Get readPermission
-     *
      * @return readPermission
-     */
+     **/
     @Schema(description = "")
     public Boolean isReadPermission() {
         return readPermission;
@@ -122,9 +120,8 @@ public class InfoDto {
 
     /**
      * Get updatePermission
-     *
      * @return updatePermission
-     */
+     **/
     @Schema(description = "")
     public Boolean isUpdatePermission() {
         return updatePermission;
@@ -141,9 +138,8 @@ public class InfoDto {
 
     /**
      * Get deletePermission
-     *
      * @return deletePermission
-     */
+     **/
     @Schema(description = "")
     public Boolean isDeletePermission() {
         return deletePermission;
@@ -202,7 +198,8 @@ public class InfoDto {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
