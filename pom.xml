@@ -38,7 +38,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spotless-maven-plugin.version>2.10.0</spotless-maven-plugin.version>
     <spotless.version>2.36.0</spotless.version>
-    <swagger-core-version>2.2.9</swagger-core-version>
+    <swagger-core-version>2.2.12</swagger-core-version>
     <threetenbp-version>1.6.8</threetenbp-version>
     <version.java>17</version.java>
   </properties>
